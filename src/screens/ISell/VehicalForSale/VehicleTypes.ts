@@ -1,0 +1,20 @@
+export type RequiredFields = {
+  make: string;
+  model: string;
+  body: string;
+  year: string;
+  images: string;
+  title: string;
+  category: string;
+  subCategory: string;
+  condition: string;
+  description: string;
+  startPrice: string;
+  askingPrice: string;
+  buyNowPrice: string;
+  startDate: string;
+  endDate: string;
+  location: string;
+  closingTime: string;
+  shipping: string;
+};

@@ -1,0 +1,38 @@
+diff --git a/node_modules/react-native-otp-textinput/dist/index.js b/node_modules/react-native-otp-textinput/dist/index.js
+index 52cfb61..11b97f5 100644
+--- a/node_modules/react-native-otp-textinput/dist/index.js
++++ b/node_modules/react-native-otp-textinput/dist/index.js
+@@ -67,6 +67,15 @@ class OTPTextView extends Component {
+         if (text && !this.basicValidation(text)) {
+             return;
+         }
++        if(i === 0 && text.length ===inputCount){
++            this.setState({otpText : text.split('')}, () => {
++                if (text.length === inputCount) {
++                    this.inputs[inputCount - 1].focus();
++                }
++               handleTextChange(this.state.otpText.join(''));
++            });
++            return;
++        }
+         this.setState((prevState) => {
+             let { otpText } = prevState;
+             otpText[i] = text;
+@@ -161,7 +170,16 @@ class OTPTextView extends Component {
+                     if (e) {
+                         this.inputs[i] = e;
+                     }
+-                }} key={i} autoCorrect={false} keyboardType={keyboardType} autoFocus={autoFocus && i === 0} value={otpText[i] || ''} style={inputStyle} maxLength={this.props.inputCellLength} onFocus={() => this.onInputFocus(i)} onChangeText={text => this.onTextChange(text, i)} multiline={false} onKeyPress={e => this.onKeyPress(e, i)} selectionColor={_tintColor} cursorColor={_tintColor} {...textInputProps} testID={`${testIDPrefix}${i}`}/>);
++                }} 
++                key={i}
++                 autoCorrect={false} 
++                 keyboardType={keyboardType} autoFocus={autoFocus && i === 0} value={otpText[i] || ''} 
++                 style={inputStyle} 
++                 maxLength={i === 0  ? inputCount : this.props.inputCellLength} 
++                 onFocus={() => this.onInputFocus(i)} 
++                 onChangeText={text => this.onTextChange(text, i)} multiline={false} 
++                 onKeyPress={e => this.onKeyPress(e, i)}
++                 selectionColor={_tintColor} cursorColor={_tintColor} {...textInputProps} testID={`${testIDPrefix}${i}`}/>);
+         }
+         return <View style={[styles.container, containerStyle]}>{TextInputs}</View>;
+     }

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "777401500036",
+    "project_id": "isqroll-6f567",
+    "storage_bucket": "isqroll-6f567.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777401500036:android:315b43c1250650c70d1dd1",
+        "android_client_info": {
+          "package_name": "com.isqroll"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhGyYcnAAmx_g7eTx21sgkMFeI7BCUWJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
