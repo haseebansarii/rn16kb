@@ -7,7 +7,7 @@ import {
   Dimensions,
 } from 'react-native';
 import {useLazyGetNextAdvertisementQuery} from '../services/advertisements';
-import FastImage from 'react-native-fast-image';
+import {Image} from 'react-native';
 import {getURLPhoto} from '../utils/helpers';
 
 const Advertisement = () => {
@@ -55,7 +55,7 @@ const Advertisement = () => {
       {currentAdvertisement && (
         <TouchableOpacity onPress={handlePress} activeOpacity={0.8}>
           {currentAdvertisement?.image && (
-            <FastImage
+            <Image
               source={{uri: getURLPhoto(currentAdvertisement.image)}}
               style={styles.image}
               resizeMode="contain"

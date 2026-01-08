@@ -11,7 +11,6 @@ import CountryMenu from './CountryMenu';
 import {useClickOutside} from 'react-native-click-outside';
 import {useGetUnreadNotificationsCountQuery} from '../../services/modules/notifications/notification';
 import {skipToken} from '@reduxjs/toolkit/query';
-import FastImage from 'react-native-fast-image';
 const Header = () => {
   const {Images, Layout, Colors, Gutters, Fonts} = useTheme();
   const token = useSelector((state: RootState) => state?.auth?.token);

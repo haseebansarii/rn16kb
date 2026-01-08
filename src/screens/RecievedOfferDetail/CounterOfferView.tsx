@@ -27,7 +27,6 @@ import {
 } from '../../services/iSell/Offers';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../../store/store';
-import FastImage from 'react-native-fast-image';
 import {StackActions, useNavigation} from '@react-navigation/native';
 import {RefreshControl} from 'react-native-gesture-handler';
 import {dropdownPaymentOption} from '../../utils/dummyData';

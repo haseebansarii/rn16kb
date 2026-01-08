@@ -2,7 +2,7 @@ import i18next from 'i18next';
 import React, {ReactNode} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-import FastImage from 'react-native-fast-image';
+import {Image} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {TextBold, TextMedium, TextSemiBold} from '../../components';
 import {useTheme} from '../../hooks';
@@ -117,7 +117,7 @@ const CustomCard = ({
               )}
             </View>
           ) : (
-            <FastImage
+            <Image
               source={
                 image !== undefined && image
                   ? {
@@ -132,7 +132,7 @@ const CustomCard = ({
                   <Images.svg.rectangleGroup.default />
                 </View>
               )}
-            </FastImage>
+            </Image>
           )}
           {item?.type === 'auction' && (
             <View

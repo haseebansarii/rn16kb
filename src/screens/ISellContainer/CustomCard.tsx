@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
-import FastImage from 'react-native-fast-image';
+import {Image} from 'react-native';
 import {
   CustomBottomSheet,
   CustomButton,
@@ -221,16 +221,23 @@ const CustomCard = ({
               </TouchableOpacity>
             </View>
           ) : (
-            <FastImage
-              source={
-                image
-                  ? {
-                      uri: getURLPhoto(image),
-                    }
-                  : getPlaceHolderProduct()
-              }
-              resizeMode="cover"
+            <View
               style={[Layout.fill, Gutters.tinyTLRadius, Gutters.tinyBLRadius]}>
+              <Image
+                source={
+                  image
+                    ? {
+                        uri: getURLPhoto(image),
+                      }
+                    : getPlaceHolderProduct()
+                }
+                resizeMode="cover"
+                style={[
+                  Layout.fill,
+                  Gutters.tinyTLRadius,
+                  Gutters.tinyBLRadius,
+                ]}
+              />
               <TouchableOpacity
                 onPress={() => addRemoveFavourites(id, is_favourite)}
                 style={{position: 'absolute', top: -1, right: 0}}>
@@ -240,7 +247,7 @@ const CustomCard = ({
                   <Images.svg.EyeRectangle.default />
                 )}
               </TouchableOpacity>
-            </FastImage>
+            </View>
           )}
           {item?.type === 'auction' && (
             <View

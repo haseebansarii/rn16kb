@@ -2,7 +2,7 @@ import i18next from 'i18next';
 import React, {useCallback} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-import FastImage from 'react-native-fast-image';
+import {Image} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {
   CustomLoading,
@@ -154,16 +154,23 @@ const CustomCard = ({
               )}
             </View>
           ) : (
-            <FastImage
-              source={
-                image
-                  ? {
-                      uri: getURLPhoto(image),
-                    }
-                  : getPlaceHolderProduct()
-              }
-              resizeMode="cover"
+            <View
               style={[Layout.fill, Gutters.tinyTLRadius, Gutters.tinyBLRadius]}>
+              <Image
+                source={
+                  image
+                    ? {
+                        uri: getURLPhoto(image),
+                      }
+                    : getPlaceHolderProduct()
+                }
+                resizeMode="cover"
+                style={[
+                  Layout.fill,
+                  Gutters.tinyTLRadius,
+                  Gutters.tinyBLRadius,
+                ]}
+              />
               {showTriangleImage && (
                 <TouchableOpacity
                   activeOpacity={onPress ? 1 : 0.7}
@@ -180,7 +187,7 @@ const CustomCard = ({
                   <Images.svg.rectangleGroup.default />
                 </TouchableOpacity>
               )}
-            </FastImage>
+            </View>
           )}
           {item?.type === 'auction' && (
             <View

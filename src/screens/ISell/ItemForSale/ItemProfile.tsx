@@ -13,7 +13,7 @@ import {
   View,
 } from 'react-native';
 
-import Modal from 'react-native-modal';
+import {Modal} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {TakePictures} from '.';
 import {listTypeConst} from './ListType';
@@ -2699,15 +2699,17 @@ const ItemProfile = ({
       </CustomBottomSheet>
 
       <Modal
-        isVisible={
+        visible={
           // shippingMethods ||
           deleteItemForSale ||
           updateItemForSale ||
           withDrawItemForSale ||
           sellingItemForSale ||
           (isShowUserPermissionDialog && !isEdit)
-        }>
-        <View style={[Layout.fill, Layout.center]}>
+        }
+        backdropColor="rgba(0, 0, 0, 0.5)"
+        presentationStyle="overFullScreen">
+        <View style={[Layout.fill, Layout.center, Gutters.smallHPadding]}>
           {isShowUserPermissionDialog && !isEdit && userCheckPermissions()}
           {deleteItemForSale && deleteItemForSaleProductPopUp()}
           {withDrawItemForSale && withDrawItemForSalePopUp()}

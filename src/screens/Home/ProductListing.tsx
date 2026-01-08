@@ -9,7 +9,7 @@ import {
   Linking,
   Dimensions,
 } from 'react-native';
-import FastImage from 'react-native-fast-image';
+import {Image} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {CustomFastImage, CustomLoading} from '../../components';
 import {useTheme} from '../../hooks';
@@ -246,7 +246,7 @@ const ProductListing = ({
               />
             </View>
           ) : (
-            <FastImage
+            <Image
               source={
                 item?.images?.length > 0
                   ? {

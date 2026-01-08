@@ -10,7 +10,7 @@ import React, {useState, useEffect} from 'react';
 import {useTheme} from '../../../../hooks';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../../../../store/store';
-import FastImage from 'react-native-fast-image';
+import {Image} from 'react-native';
 import {API_URL} from '../../../../config';
 import moment from 'moment';
 import {buyingType} from '../../../../store/productDetail/ProductDetailSlice';
@@ -118,7 +118,7 @@ const OffersComponnet = () => {
                 />
               </View>
             ) : (
-              <FastImage
+              <Image
                 source={
                   selectedProductData?.images &&
                   selectedProductData?.images[0]?.name

@@ -4,7 +4,6 @@ import {useTheme} from '../../hooks';
 import {CustomFastImage, TextRegular, TextSemiBold} from '../../components';
 import i18next from 'i18next';
 import {useSelector} from 'react-redux';
-import FastImage from 'react-native-fast-image';
 import {RootState} from '../../store/store';
 import {getStaticImage, getURLPhoto} from '../../utils/helpers';
 import {SvgUri} from 'react-native-svg';

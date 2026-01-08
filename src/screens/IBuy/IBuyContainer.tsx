@@ -58,7 +58,7 @@ import {
   useAddFavouriteListingMutation,
   useRemoveFavouriteListingMutation,
 } from '../../services/modules/home/favouriteListing';
-import FastImage from 'react-native-fast-image';
+import {Image} from 'react-native';
 import moment from 'moment';
 import {
   setSearchCatagories,
@@ -2368,7 +2368,7 @@ const IBuyContainer = ({navigation, route}: any) => {
               />
             </View>
           ) : (
-            <FastImage
+            <Image
               source={
                 item?.images?.length > 0
                   ? {

@@ -3,7 +3,7 @@ import React from 'react';
 import {useTheme} from '../../../../hooks';
 import {product_details} from '../../../../utils/dummyData';
 import moment from 'moment';
-import FastImage from 'react-native-fast-image';
+import {Image} from 'react-native';
 import {useSelector} from 'react-redux';
 import {API_URL} from '../../../../config';
 import {getPlaceHolderProduct, getURLPhoto} from '../../../../utils/helpers';
@@ -57,7 +57,7 @@ const BuyingDetail = () => {
               />
             </View>
           ) : (
-            <FastImage
+            <Image
               source={
                 selectedProductData?.images &&
                 selectedProductData?.images[0]?.name

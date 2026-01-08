@@ -4,7 +4,7 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import i18next from 'i18next';
 
 import moment from 'moment';
-import FastImage from 'react-native-fast-image';
+import {Image} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {TextMedium} from '.';
 import {useTheme} from '../hooks';
@@ -57,7 +57,7 @@ const FixedPriceCard = ({
         },
       ]}>
       <View style={[{height: '50%'}]}>
-        <FastImage
+        <Image
           source={
             dataList?.images && dataList?.images[0]?.name
               ? {
@@ -80,7 +80,7 @@ const FixedPriceCard = ({
               <Images.svg.eyeBack.default />
             )}
           </TouchableOpacity>
-        </FastImage>
+        </Image>
       </View>
       <View
         style={[Layout['fill'], Gutters.tinyHPadding, Gutters.tinyVPadding]}>

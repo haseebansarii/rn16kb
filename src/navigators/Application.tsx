@@ -11,6 +11,7 @@ import {navigationRef} from './utils';
 import {tabBarRef} from './TabNavigator';
 import notifee, {EventType} from '@notifee/react-native';
 import {requestUserPermission} from '../utils/NotificationService';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 import SplashScreen from 'react-native-splash-screen';
 
@@ -130,25 +131,20 @@ const ApplicationNavigator = () => {
   );
 
   return (
-    <View style={[Layout.fullSize, {backgroundColor: Colors.background}]}>
+    <SafeAreaView style={[Layout.fullSize]} edges={['top']}>
       <NavigationContainer theme={NavigationTheme} ref={navigationRef}>
         <StatusBar
-          translucent
+          translucent={false}
           backgroundColor={Colors.white}
           barStyle={'dark-content'}
         />
-        <View
-          style={[
-            Layout.fill,
-            Gutters.statusBarHeight,
-            {backgroundColor: Colors.white},
-          ]}>
+        <View style={[Layout.fill, {backgroundColor: Colors.white}]}>
           {shouldShowTabNavigator ? <TabNavigator /> : <AuthNavigator />}
           {/* <TabNavigator /> */}
           {/* <AuthNavigator /> */}
         </View>
       </NavigationContainer>
-    </View>
+    </SafeAreaView>
   );
 };
 

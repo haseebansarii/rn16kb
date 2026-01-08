@@ -1,6 +1,6 @@
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import React, {useState} from 'react';
-import FastImage from 'react-native-fast-image';
+import {Image} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {product_details} from '../../../utils/dummyData';
 import {useTheme} from '../../../hooks';
@@ -84,7 +84,7 @@ const SwiperImages = () => {
                       />
                     </View>
                   ) : (
-                    <FastImage
+                    <Image
                       // source={{uri: item}}
                       source={{
                         uri: `${API_URL}get-uploaded-image/${item?.name}`,
@@ -110,7 +110,7 @@ const SwiperImages = () => {
                 setIsImage([getPlaceHolderProduct()]);
                 setIsVisible(true);
               }}>
-              <FastImage
+              <Image
                 // source={{uri: item}}
                 source={getPlaceHolderProduct()}
                 resizeMode="contain"

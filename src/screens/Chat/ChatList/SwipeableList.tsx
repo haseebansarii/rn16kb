@@ -27,7 +27,6 @@ import {
   useLazyGetAllUsersChatQuery,
 } from '../../../services/chat';
 import {RootState} from '../../../store/store';
-import FastImage from 'react-native-fast-image';
 import {SwipeListView} from 'react-native-swipe-list-view';
 import {getStaticImage, getURLPhoto} from '../../../utils/helpers';
 import {allMessages, setAllUserMessages} from '../../../store/chats/chats';

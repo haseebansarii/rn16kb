@@ -1,12 +1,11 @@
 import React, {memo} from 'react';
-import {Text} from 'react-native';
+import {Text, TextStyle} from 'react-native';
 import {useTheme} from '../hooks';
 import {extractObjects} from '../utils/helpers';
-import {StyleProps} from 'react-native-reanimated';
 
 type Props = {
   text: string;
-  textStyle?: StyleProps;
+  textStyle?: TextStyle;
   textProps?: any;
 };
 

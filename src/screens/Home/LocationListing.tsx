@@ -9,8 +9,6 @@ import {
   View,
   Dimensions,
 } from 'react-native';
-import FastImage from 'react-native-fast-image';
-import StarRating from 'react-native-star-rating';
 import {useDispatch} from 'react-redux';
 import {API_URL} from '../../config';
 import {useTheme} from '../../hooks';

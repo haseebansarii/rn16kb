@@ -10,7 +10,7 @@ import {
   FlatList,
   Linking,
 } from 'react-native';
-import Modal from 'react-native-modal';
+import {Modal} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {MethodOfSaleSelection, MethodOfSaleType} from '.';
 import {
@@ -2769,7 +2769,9 @@ const VehicalForm = ({
                         <CustomCheckBox
                           setSelected={v => {
                             dispatch(
-                              setVehicalData({enable_good_lending_finance: v}),
+                              setVehicalData({
+                                enable_good_lending_finance: v,
+                              }),
                             );
                           }}
                           index={0}
@@ -3625,15 +3627,17 @@ const VehicalForm = ({
       </TouchableOpacity>
 
       <Modal
-        isVisible={
+        visible={
           // shippingMethods ||
           deleteItemForSale ||
           updateItemForSale ||
           withDrawItemForSale ||
           sellingItemForSale ||
           (isShowUserPermissionDialog && !isEdit)
-        }>
-        <View style={[Layout.fill, Layout.center]}>
+        }
+        presentationStyle="overFullScreen"
+        backdropColor="rgba(0, 0, 0, 0.5)">
+        <View style={[Layout.fill, Layout.center, Gutters.smallHPadding]}>
           {/* {shippingMethods && shippingMethodsCheck()} */}
 
           {isShowUserPermissionDialog && !isEdit && userCheckPermissions()}

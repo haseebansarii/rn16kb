@@ -7,6 +7,7 @@ const CustomModal = (props: any) => {
     <Modal
       animationType="slide"
       transparent={true}
+      presentationStyle="overFullScreen"
       visible={props?.modalVisible}
       onRequestClose={() => {
         Alert.alert('Modal has been closed.');

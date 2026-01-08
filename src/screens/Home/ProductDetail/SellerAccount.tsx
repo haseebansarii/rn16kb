@@ -1,12 +1,10 @@
 import React from 'react';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
-import FastImage from 'react-native-fast-image';
-import StarRating from 'react-native-star-rating';
+import {Text, TouchableOpacity, View} from 'react-native';
 import {useSelector} from 'react-redux';
 import {useTheme} from '../../../hooks';
 import {navigate} from '../../../navigators/utils';
 import {getStaticImage, getURLPhoto} from '../../../utils/helpers';
-import {CustomFastImage} from '../../../components';
+import {CustomFastImage, CustomStarRating} from '../../../components';
 import {RootState} from '../../../store/store';
 import {useNavigation} from '@react-navigation/native';
 
@@ -20,7 +18,7 @@ const SellerAccount = () => {
   return (
     <TouchableOpacity
       onPress={() => {
-        navigate('RatingReviews', {
+        navigate('RatingReviews' as any, {
           header_text: 'Seller Detail',
           id: selectedProductData?.user?._id,
           img: selectedProductData?.user?.photo?.name,
@@ -33,8 +31,8 @@ const SellerAccount = () => {
         Layout.row,
         Gutters.tinyVPadding,
         Gutters.tinyHPadding,
-        Gutters.tinyRadius,
-        Gutters.borderWidth,
+        {borderRadius: 5},
+        {borderWidth: 1},
         {borderColor: Colors.dark_gray_676C6A},
         {height: 135},
       ]}>
@@ -42,7 +40,7 @@ const SellerAccount = () => {
         <CustomFastImage
           url={
             selectedProductData?.user?.photo?.name
-              ? getURLPhoto(selectedProductData?.user?.photo?.name)
+              ? getURLPhoto(selectedProductData?.user?.photo?.name) || ''
               : getStaticImage(true)
           }
           resizeMode="cover"
@@ -115,12 +113,15 @@ const SellerAccount = () => {
             Layout.alignItemsCenter,
           ]}>
           <View style={[]}>
-            <StarRating
+            <CustomStarRating
               disabled={true}
               maxStars={5}
               starSize={15}
-              rating={selectedProductData?.user?.avg_rating_as_seller}
+              rating={selectedProductData?.user?.avg_rating_as_seller || 5}
               fullStarColor={Colors.primary}
+              emptyStarColor={Colors.gray_C9C9C9}
+              halfStarEnabled={true}
+              showRating={true}
             />
           </View>
           <View style={[Layout.alignItemsEnd, {width: '65%'}]}>

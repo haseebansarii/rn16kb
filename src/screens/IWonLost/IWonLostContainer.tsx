@@ -48,7 +48,7 @@ import {
   setlistData,
   setSelectedProductData,
 } from '../../store/Listings';
-import FastImage from 'react-native-fast-image';
+import {Image} from 'react-native';
 import {fixBottomTab} from '../../store/stack/StackSlice';
 import {selectedProduct} from '../../store/productDetail/ProductDetailSlice';
 import RegularText from '../../components/RegularText';
@@ -202,7 +202,7 @@ const IWonLostContainer = ({navigation}: Props) => {
               />
             </View>
           ) : (
-            <FastImage
+            <Image
               source={
                 item?.images && item?.images[0]?.name
                   ? {
@@ -214,7 +214,7 @@ const IWonLostContainer = ({navigation}: Props) => {
               style={[
                 Layout.fill,
                 {borderTopRightRadius: 10, borderTopLeftRadius: 10},
-              ]}></FastImage>
+              ]}></Image>
           )}
           {item?.type === 'auction' && (
             <View

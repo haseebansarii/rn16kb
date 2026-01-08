@@ -80,10 +80,15 @@ android {
         applicationId "com.isqroll"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 62
+        versionCode 66
         vectorDrawables.useSupportLibrary = true
-        versionName "35.5.0"
+        versionName "35.6.0"
         missingDimensionStrategy "store", "play"
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     signingConfigs {
         debug {
@@ -117,7 +122,11 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
-    implementation 'com.google.android.gms:play-services-maps:17.0.0' // or latest version
+    
+    // Updated Google Play Services for better compatibility
+    implementation 'com.google.android.gms:play-services-maps:18.2.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
+    implementation 'com.google.android.gms:play-services-base:18.2.0'
     
     // implementation("com.facebook.react:flipper-integration")
     implementation project(':react-native-vector-icons')

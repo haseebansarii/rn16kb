@@ -58,6 +58,7 @@ const AppUpdatesModal = () => {
       animationType="slide"
       transparent={false}
       visible={isVisible}
+      presentationStyle="overFullScreen"
       // onRequestClose={() => setIsVisible(false)}
     >
       <View style={styles.centeredView}>

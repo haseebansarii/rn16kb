@@ -55,7 +55,7 @@ import {
 import {axiosUploadImagesMutation} from '../../../services/submitForms/imageUploadFormAxios';
 import {useLazyGetUserCheckPermissionsQuery} from '../../../services/accountSettings/userProfileService';
 
-import Modal from 'react-native-modal';
+import {Modal} from 'react-native';
 import {FE_URL} from '../../../config';
 import {Linking} from 'react-native';
 import RegularText from '../../../components/RegularText';
@@ -3757,15 +3757,17 @@ const PropertyForm = ({navigation, route}: Props) => {
         </View>
       </TouchableOpacity>
       <Modal
-        isVisible={
+        visible={
           // shippingMethods ||
           deleteItemForSale ||
           updateItemForSale ||
           withDrawItemForSale ||
           sellingItemForSale ||
           (isShowUserPermissionDialog && !isEdit)
-        }>
-        <View style={[Layout.fill, Layout.center]}>
+        }
+        backdropColor="rgba(0, 0, 0, 0.5)"
+        presentationStyle="overFullScreen">
+        <View style={[Layout.fill, Layout.center, Gutters.smallHPadding]}>
           {/* {shippingMethods && shippingMethodsCheck()} */}
 
           {isShowUserPermissionDialog && !isEdit && userCheckPermissions()}

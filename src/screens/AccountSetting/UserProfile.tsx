@@ -40,14 +40,13 @@ import {sHight, sWidth} from '../../utils/ScreenDimentions';
 import {AccountSettingSchema} from '../../utils/Validation';
 import {genderData} from '../../utils/dummyData';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import FastImage from 'react-native-fast-image';
 import {
   getPlaceHolderProduct,
   getURLPhoto,
   toastDangerMessage,
   toastSuccessMessage,
 } from '../../utils/helpers';
-import Modal from 'react-native-modal';
+import {Modal} from 'react-native';
 import {useDeleteProfileMutation} from '../../services/auth/signupApi';
 import {axiosUploadImagesMutation} from '../../services/submitForms/imageUploadFormAxios';
 import {deepLinkToSubscriptionsIos, useIAP} from 'react-native-iap';
@@ -1644,8 +1643,12 @@ const UserProfile = ({navigation}: Props) => {
                 />
               )}
               <CustomLoading isLoading={isLoadingDeleteMotorData} />
-              <Modal isVisible={deleteItemPopUp}>
-                <View style={[Layout.fill, Layout.center]}>
+              <Modal
+                visible={deleteItemPopUp}
+                presentationStyle="overFullScreen"
+                backdropColor="rgba(0, 0, 0, 0.5)">
+                <View
+                  style={[Layout.fill, Layout.center, Gutters.smallHPadding]}>
                   {DeleteSelectedItem()}
                 </View>
               </Modal>
@@ -1659,8 +1662,13 @@ const UserProfile = ({navigation}: Props) => {
           />
         </View>
 
-        <Modal isVisible={deleteProfilePopUp}>
-          <View style={[Layout.fill, Layout.center]}>{DeleteProfile()}</View>
+        <Modal
+          visible={deleteProfilePopUp}
+          backdropColor="rgba(0, 0, 0, 0.5)"
+          presentationStyle="overFullScreen">
+          <View style={[Layout.fill, Layout.center, Gutters.smallHPadding]}>
+            {DeleteProfile()}
+          </View>
         </Modal>
       </View>
     </KeyboardAwareScrollView>

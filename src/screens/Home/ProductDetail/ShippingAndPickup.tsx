@@ -48,7 +48,7 @@ const ShippingAndPickup = () => {
                     style={{...StyleSheet.absoluteFillObject}}
                     // provider={PROVIDER_GOOGLE}
                     loadingEnabled={true}
-                    showsUserLocation={true}
+                    showsUserLocation={false}
                     showsCompass={true}
                     zoomEnabled={false}
                     zoomTapEnabled={true}

@@ -11,7 +11,6 @@ import {WebView} from 'react-native-webview';
 import {CustomHeader} from '../../components';
 import {API_URL} from '../../config';
 import {useTheme} from '../../hooks';
-import Modal from 'react-native-modal';
 
 type Props = {
   navigation: any;

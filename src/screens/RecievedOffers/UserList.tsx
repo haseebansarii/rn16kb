@@ -13,7 +13,6 @@ import {useLazyProductOffersQuery} from '../../services/iSell/Offers';
 import {setClearProductOffer} from '../../store/iSell';
 import {API_URL} from '../../config';
 import {getURLPhoto} from '../../utils/helpers';
-import FastImage from 'react-native-fast-image';
 import {useFocusEffect, useRoute} from '@react-navigation/native';
 
 type Props = {

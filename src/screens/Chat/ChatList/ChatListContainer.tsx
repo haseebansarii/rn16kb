@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '../../../store/store';
 import {useLazyGetUserCheckPermissionsQuery} from '../../../services/accountSettings/userProfileService';
 
-import Modal from 'react-native-modal';
+import {Modal} from 'react-native';
 import {storeUserCheckPermissons} from '../../../store/auth/AuthSlice';
 import {useLazyGetAllUsersChatQuery} from '../../../services/chat';
 import {useIsFocused} from '@react-navigation/native';
@@ -183,7 +183,11 @@ const ChatListContainer = ({navigation}: Props) => {
           <SwipeableList navigation={navigation} data={filteredData} />
         </View>
       </View>
-      <Modal isVisible={isShowUserPermissionDialog}>
+      <Modal
+        visible={isShowUserPermissionDialog}
+        transparent={true}
+        animationType="fade"
+        presentationStyle="overFullScreen">
         <View style={[Layout.fill, Layout.center]}>
           {isShowUserPermissionDialog && userCheckPermissions()}
         </View>

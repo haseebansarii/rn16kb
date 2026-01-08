@@ -48,7 +48,6 @@ import {fixBottomTab} from '../../store/stack/StackSlice';
 import {setSelectedProductData} from '../../store/Listings';
 import {useNavigation} from '@react-navigation/native';
 import {SvgUri} from 'react-native-svg';
-import FastImage from 'react-native-fast-image';
 
 const AreaLocation = ({refreshing}: any) => {
   const dispatch = useDispatch();

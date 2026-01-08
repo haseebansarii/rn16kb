@@ -1,5 +1,4 @@
-import {View} from 'react-native';
-import FastImage from 'react-native-fast-image';
+import {View, Image} from 'react-native';
 import {useTheme} from '../hooks';
 import {ReactNode} from 'react';
 import {extractObjects} from '../utils/helpers';
@@ -68,7 +67,7 @@ const CustomFastImage = ({
           />
         </View>
       ) : (
-        <FastImage
+        <Image
           style={[
             {
               width: width,
@@ -84,12 +83,11 @@ const CustomFastImage = ({
                 ? {
                     uri: url,
                     headers: {Authorization: 'authToken'},
-                    priority: FastImage.priority.normal,
                   }
                 : url
               : require('../theme/assets/svg/images-notFound.svg')
           }
-          resizeMode={resizeMode ? resizeMode : FastImage.resizeMode.contain}
+          resizeMode={resizeMode ? resizeMode : 'contain'}
         />
       )}
       {children && <>{children}</>}

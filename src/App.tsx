@@ -23,6 +23,7 @@ import {navigationRef} from './navigators/utils';
 import {publishable_key} from './config';
 import CryptoJS from 'crypto-js';
 import {withIAPContext} from 'react-native-iap';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 LogBox.ignoreAllLogs(true);
 
@@ -139,21 +140,23 @@ const App = () => {
   }, []);
 
   return (
-    <StripeProvider
-      publishableKey={publishable_key}
-      merchantIdentifier="merchant.identifier" // required for Apple Pay
-      urlScheme="your-url-scheme" // required for 3D Secure and bank redirects
-    >
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <ClickOutsideProvider>
-            <ApplicationNavigator />
-          </ClickOutsideProvider>
+    <SafeAreaProvider style={{backgroundColor: 'white'}}>
+      <StripeProvider
+        publishableKey={publishable_key}
+        merchantIdentifier="merchant.identifier" // required for Apple Pay
+        urlScheme="your-url-scheme" // required for 3D Secure and bank redirects
+      >
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <ClickOutsideProvider>
+              <ApplicationNavigator />
+            </ClickOutsideProvider>
 
-          <Toast ref={ref => (global.toast = ref)} />
-        </PersistGate>
-      </Provider>
-    </StripeProvider>
+            <Toast ref={ref => (global.toast = ref)} />
+          </PersistGate>
+        </Provider>
+      </StripeProvider>
+    </SafeAreaProvider>
   );
 };
 

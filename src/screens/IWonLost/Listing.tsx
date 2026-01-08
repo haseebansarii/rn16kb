@@ -1,7 +1,6 @@
 import moment from 'moment';
 import React from 'react';
 import {FlatList, Image, Text, TouchableOpacity, View} from 'react-native';
-import FastImage from 'react-native-fast-image';
 import {useSelector} from 'react-redux';
 import {useTheme} from '../../hooks';
 import {product_listing} from '../../utils/dummyData';
@@ -63,7 +62,7 @@ const Listing = ({
             />
           </View>
         ) : (
-          <FastImage
+          <Image
             source={
               item?.images && item?.images[0]?.name
                 ? getURLPhoto(item?.images[0]?.name)
